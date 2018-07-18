@@ -1,6 +1,11 @@
-# Project Name
+# Nike Shoes page
 
-> Project description
+> Nike shoes web page. This page lets the user to-
+1. Browse at the picture gallery/video of the product. 
+2. Check the price and available size and colors. 
+3. The user can read the product description and order the shoe or add it to the wishlist.
+4. Browse the instragam pictures of the existing users wearing the particular shoe. 
+5. See the realated shoe that they might like.
 
 ## Related Projects
 
