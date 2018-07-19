@@ -4,12 +4,13 @@
   "description": "renders the description component of the app",
   "author": "Dilsher Buttar",
   "license": "",
+  "main":"app.js",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
     "test": "jest",
-    "build": "webpack",
+    "build": "webpack --watch",
     "start": "nodemon ./server/server.js"
   },
   "dependencies": {
