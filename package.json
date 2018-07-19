@@ -4,12 +4,13 @@
   "description": "renders the description component of the app",
   "author": "Dilsher Buttar",
   "license": "",
+  "main": "app.js",
   "engines": {
     "node": ">=6.13.0"
   },
   "scripts": {
     "test": "jest",
-    "build": "webpack",
+    "build": "webpack --watch",
     "start": "nodemon ./server/server.js"
   },
   "dependencies": {
@@ -20,6 +21,8 @@
     "babel-preset-react": "^6.24.1",
     "express": "^4.16.2",
     "jest": "^22.3.0",
+    "mongoose": "^5.2.4",
+    "mongoose-auto-increment": "^5.0.1",
     "morgan": "^1.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
