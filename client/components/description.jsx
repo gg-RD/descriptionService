@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import styles from "../../public/style.css"
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import FontAwesome from 'react-fontawesome';
 import SizeTable from './sizeTable.jsx';
 import ShippingReturns from './shippingReturns.jsx';
 import Reviews from './reviews.jsx';
@@ -33,23 +32,15 @@ export default class Description extends React.Component {
       }],
       visible_shippings: false,
       visible_reviews: false,
-      visible_info: false,
+   
+     
 
     }; 
+  
 
   }
 
-  slideUpShippings() {
-    this.setState({ visible_shippings: !this.state.visible_shippings });
-  }
 
-  slideUpReviews() {
-    this.setState({ visible_reviews: !this.state.visible_reviews });
-  }
-
-  slideUpInfo() {
-    this.setState({ visible_info: !this.state.visible_info });
-  }
 
  
 
@@ -77,14 +68,24 @@ export default class Description extends React.Component {
   render() {
     return (
       <div className = "container">
+       <div className = "blank">
+         something else
+       </div>
+       <div className = "content">
         <ShoeName />
         <SizeTable/>
         <AddToCart/>
-        <div >FREE SHIPPING & RETURNS</div>
-        <div ><ShippingReturns /></div>
-        <div >REVIEWS (154)</div>
-        <div ><Reviews /></div>
+        <div className = "shippings-main" onClick = {() => {this.setState({visible_shippings : !this.state.visible_shippings}) } }>FREE SHIPPING & RETURNS
+        <div className = "icon">{this.state.visible_shippings ? <FontAwesome name='fas fa-minus' /> : <FontAwesome name='fas fa-plus' />} </div>
+        
+        </div>
+        <div className = {this.state.visible_shippings ? "shippings": "hidden" }><ShippingReturns /></div>
+        <div className = "shippings-main" onClick = {() => {this.setState({visible_reviews : !this.state.visible_reviews}) } }>REVIEWS (3) 
+          <div className = "icon">{this.state.visible_reviews ? <FontAwesome name='fas fa-minus' /> : <FontAwesome name='fas fa-plus' />} </div>
+        </div>
+        <div className = {this.state.visible_reviews ? "shippings": "hidden"}><Reviews /></div>
         <ShoeDescription/>
+       </div> 
       
       </div>
 
