@@ -20,22 +20,20 @@ export default class Description extends React.Component {
 
     this.state = {
       description: [{
-        _id:'1',
-        shoe_type: 'Men\'s running shoes',
-        shoe_name: 'Nike Epic React Flyknit',
-        shoe_price: '$150',
-        shoe_descpription: "The Nike Epic React Flyknit Men's Running Shoe provides crazy comfort that lasts as long as you can run. Its Nike React foam cushioning is responsive yet lightweight, durable yet soft. This attraction of opposites creates a sensation that not only enhances the feeling of moving forward, but makes running feel fun, too.",
-        shoe_shown: "Shown: CollegeNavy/Hyper Jade/Sail/Red Orbit Style: AR5413-400",
-        shoe_style: "Style: AR5413-400",
-        shoe_size: []
-
+        shoe_cat: '',
+        shoe_price: '',
+        shoe_name: '',
+        shoe_size: [],
+        shoe_descpription: '',
+        shoe_shown: '',
+        shoe_style: ''
       }],
       visible_shippings: false,
       visible_reviews: false,
-   
-     
 
     }; 
+
+    this.getDescriptions =this.getDescriptions.bind(this);
   
 
   }
@@ -44,25 +42,25 @@ export default class Description extends React.Component {
 
  
 
-  // componentDidMount(){
-  //  this.getDescriptions();
-  // }
+  componentDidMount(){
+   this.getDescriptions();
+  }
 
-  // getDescriptions(){
-  //   var setState = this.setState.bind(this);
+  getDescriptions(){
+    var setState = this.setState.bind(this);
 
-  //   $.get('http://localhost:3001/description/air_force_1', function(data){
-  //     var parsedData = JSON.parse(data);
-  //     console.log(parsedData);
-  //     setState({
-  //       description: parsedData
-  //     })
-  //   });
+    $.get('http://localhost:3001/description/air_force_1', function(data){
+      var parsedData = JSON.parse(data);
+      setState({
+        description: parsedData
+      })
+    });
+    console.log(this.state.description);
 
-  // }
+  }
 
   
-
+  
 
 
   render() {
@@ -72,7 +70,7 @@ export default class Description extends React.Component {
          something else
        </div>
        <div className = "content">
-        <ShoeName />
+        <ShoeName data = {this.state.description}/>
         <SizeTable/>
         <AddToCart/>
         <div className = "shippings-main" onClick = {() => {this.setState({visible_shippings : !this.state.visible_shippings}) } }>FREE SHIPPING & RETURNS
@@ -84,7 +82,7 @@ export default class Description extends React.Component {
           <div className = "icon">{this.state.visible_reviews ? <FontAwesome name='fas fa-minus' /> : <FontAwesome name='fas fa-plus' />} </div>
         </div>
         <div className = {this.state.visible_reviews ? "shippings": "hidden"}><Reviews /></div>
-        <ShoeDescription/>
+        <ShoeDescription data = {this.state.description}/>
        </div> 
       
       </div>
