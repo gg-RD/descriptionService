@@ -13,6 +13,18 @@
     "build": "webpack --watch",
     "start": "nodemon ./server/server.js"
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./setupTests.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gg-RD/descriptionService.git"
+  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -27,9 +39,23 @@
     "morgan": "^1.9.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "webpack": "^3.11.0"
+    "react-fontawesome": "^1.6.1",
+    "webpack": "^3.11.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^16.4.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "babel-jest": "^23.4.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-polyfill": "^6.26.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "jest-enzyme": "^6.0.2"
   }
 }

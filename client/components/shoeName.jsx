@@ -1,13 +1,13 @@
 import React from 'react';
 
-const ShoeName = () => (
+const ShoeName = (props) => (
   <div >
 
    <div className = "price">
-    <h6 >Men's running Shoe</h6>
-    <h6>$150</h6>
+    <h6 >{props.data[0].shoe_cat}</h6>
+    <h6>{props.data[0].shoe_price}</h6>
    </div>
-    <h4 className = "shoe-name">Nike Epic React Flyknit</h4> 
+    <h4 className = "shoe-name">{props.data[0].shoe_name}</h4> 
   </div>
   );
 

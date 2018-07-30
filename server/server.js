@@ -16,6 +16,11 @@ app.get('/description/air_force_1', function(req, res){
 	})
 
 
+});
+
+app.post('/description/add', function(req,res){
+	db.add();
+	res.end();
 })
 
 
