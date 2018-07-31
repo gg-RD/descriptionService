@@ -8,5 +8,6 @@ describe('Description Component', () => {
 		const wrapper = shallow(<Description />)
 		expect(wrapper).toMatchSnapshot();
 	});
+
 });
 

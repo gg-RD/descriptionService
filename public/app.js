@@ -938,12 +938,10 @@ var Description = function (_React$Component) {
 
       _jquery2.default.get('http://localhost:3001/description/air_force_1', function (data) {
         var parsedData = JSON.parse(data);
-        console.log(parsedData);
         setState({
           description: parsedData
         });
       });
-      console.log(this.state.description);
     }
   }, {
     key: 'render',
