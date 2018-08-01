@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import style from 'styled-components'
 import FontAwesome from 'react-fontawesome';
 import SizeTable from './sizeTable.jsx';
 import ShippingReturns from './shippingReturns.jsx';
@@ -47,30 +48,78 @@ export default class Description extends React.Component {
 
 
   render() {
+    let shipping;
+    if(this.state.visible_shippings){
+      shipping = <ShippingReturns />
+    } else {
+      shipping = '';
+    }
+
+    let review;
+    if(this.state.visible_reviews){
+      review = <Reviews />
+    } else {
+      review = '';
+    }
     return (
-      <div className = "container">
-      <div className = "blank">
-      something else
-      </div>
-      <div className = "content">
-      <ShoeName data = {this.state.description}/>
-      <SizeTable/>
-      <AddToCart/>
-      <div className = "shippings-main" onClick = {() => {this.setState({visible_shippings : !this.state.visible_shippings}) } }>FREE SHIPPING & RETURNS
-      <div className = "icon">{this.state.visible_shippings ? <FontAwesome name='fas fa-minus' /> : <FontAwesome name='fas fa-plus' />} </div>
+      <Container>
+
+        <Blank className = "blank">
+          
+        </Blank>
+
+      <Content >
+        <ShoeName data = {this.state.description}/>
+        <SizeTable/>
+        <AddToCart/>
+
+        <ShippingMain className = "shippings-main" onClick = {() => {this.setState({visible_shippings : !this.state.visible_shippings}) } }>FREE SHIPPING & RETURNS
+          <div>{this.state.visible_shippings ? <FontAwesome name='fas fa-minus' /> : <FontAwesome name='fas fa-plus' />} 
+          </div>
+        </ShippingMain>
+        <div >
+          {shipping}
+        </div>
+
+        <ShippingMain onClick = {() => {this.setState({visible_reviews : !this.state.visible_reviews}) } }>REVIEWS (3) 
+          <div>{this.state.visible_reviews ? <FontAwesome name='fas fa-minus' /> : <FontAwesome name='fas fa-plus' />} 
+          </div>
+        </ShippingMain>
+        <div>
+          {review}
+        </div>
+
+        <ShoeDescription data = {this.state.description}/>
+      </Content> 
       
-      </div>
-      <div className = {this.state.visible_shippings ? "shippings": "hidden" }><ShippingReturns /></div>
-      <div className = "shippings-main" onClick = {() => {this.setState({visible_reviews : !this.state.visible_reviews}) } }>REVIEWS (3) 
-      <div className = "icon">{this.state.visible_reviews ? <FontAwesome name='fas fa-minus' /> : <FontAwesome name='fas fa-plus' />} </div>
-      </div>
-      <div className = {this.state.visible_reviews ? "shippings": "hidden"}><Reviews /></div>
-      <ShoeDescription data = {this.state.description}/>
-      </div> 
-      
-      </div>
+      </Container>
 
       );
   }
 
+
 }
+
+const Container = style.div `
+    display: flex;
+    justify-content: space-between;
+`
+
+const Content = style.div `
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25em;
+    margin: 0;
+`
+const ShippingMain = style.div `
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px 10px 0px;
+
+`
+
+ const Blank = style.div `
+    display: flex;
+    flex-basis: 200px;
+ `
+
