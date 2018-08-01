@@ -1,15 +1,23 @@
 import React from "react";
+import style from 'styled-components'
+
 
 
 const ShoeDescription = (props) => {
   return (
     <div>
-     <div className = "description-main">{props.data[0].shoe_descpription}</div>
-     <div className = "description-shown">Shown: {props.data[0].shoe_shown}</div>
-     <div className = "description-style">Style: {props.data[0].shoe_style}</div>
+     <DescriptionMain>{props.data[0].shoe_descpription}</DescriptionMain>
+     <div>Shown: {props.data[0].shoe_shown}</div>
+     <div>Style: {props.data[0].shoe_style}</div>
 
     </div>
   );
 };
+
+ const DescriptionMain = style.div `
+    margin-bottom: 80px;
+
+ `
+
 
 export default ShoeDescription;
