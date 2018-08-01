@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react';  
 import $ from 'jquery';
 import FontAwesome from 'react-fontawesome';
 import SizeTable from './sizeTable.jsx';
