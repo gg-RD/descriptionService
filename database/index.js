@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 
-mongoose.connect('mongodb://localhost/shoes');
+mongoose.connect('mongodb://database:27017/shoes');
 
 
 
@@ -43,6 +43,7 @@ const add = () => {
 
 let find = (gotThedescriptions) => {
 	ShoeDesc.find({}, function(err, docs){
+
 		if(err){    
 			console.log('error fetching descriptions from the database');
 			return;
@@ -50,6 +51,10 @@ let find = (gotThedescriptions) => {
 		gotThedescriptions(docs);
 	})
 }
+
+add();
+
+
 
 module.exports.find = find;
 module.exports.add = add;

@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Description from './components/description.jsx';
 
-window.Description = Description;
+ReactDOM.render(<Description />, document.getElementById('description'))
